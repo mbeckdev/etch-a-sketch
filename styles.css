@@ -1,0 +1,22 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: blue;
+}
+
+#cell-container {
+  width: 100px;
+  height: 100px;
+  background-color: orange;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+
+  /* grid-template-columns: auto auto auto; */
+
+  /* grid-auto-flow: row; */
+}
+.cell {
+  /* background-color: red; */
+  border: 1px solid red;
+}
