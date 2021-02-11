@@ -8,7 +8,9 @@
   </head>
   <body>
     <h1>Etch A Sketch</h1>
+    <button>New Grid Size</button>
     <div id="cell-container">
+      <!-- <div class="cell"></div>
       <div class="cell"></div>
       <div class="cell"></div>
       <div class="cell"></div>
@@ -16,12 +18,28 @@
       <div class="cell"></div>
       <div class="cell"></div>
       <div class="cell"></div>
-      <div class="cell"></div>
-      <div class="cell"></div>
+      <div class="cell"></div> -->
     </div>
     <script>
       'use strict';
 
+      const cellContainer = document.getElementById('cell-container');
+      function setupInitial(cellsAlongWidth) {
+        cellContainer.style.gridTemplateColumns = `repeat(${cellsAlongWidth}, auto)`;
+        console.log('asdf');
+        for (let i = 0; i < cellsAlongWidth ** 2; i++) {
+          createACell();
+        }
+      }
+
+      function createACell() {
+        let tempCell = document.createElement('div');
+        tempCell.classList.add('cell');
+        cellContainer.appendChild(tempCell);
+        console.log('a cell was added to cell-container');
+      }
+
+      setupInitial(16);
     </script>
   </body>
 </html>
