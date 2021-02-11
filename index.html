@@ -8,7 +8,7 @@
   </head>
   <body>
     <h1>Etch A Sketch</h1>
-    <button>New Grid Size</button>
+    <button type="button">New Grid Size</button>
     <div id="cell-container">
       <!-- <div class="cell"></div>
       <div class="cell"></div>
@@ -24,6 +24,7 @@
       'use strict';
 
       const cellContainer = document.getElementById('cell-container');
+
       function setupInitial(cellsAlongWidth) {
         cellContainer.style.gridTemplateColumns = `repeat(${cellsAlongWidth}, auto)`;
         console.log('asdf');
@@ -37,6 +38,14 @@
         tempCell.classList.add('cell');
         cellContainer.appendChild(tempCell);
         console.log('a cell was added to cell-container');
+      }
+
+      function clearGrid() {
+        let numberOfCells = cellContainer.children.length;
+
+        for (let i = 0; i < numberOfCells; i++) {
+          cellContainer.children[0].remove();
+        }
       }
 
       setupInitial(16);
