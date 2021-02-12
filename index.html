@@ -8,7 +8,7 @@
   </head>
   <body>
     <h1>Etch A Sketch</h1>
-    <button type="button">New Grid Size</button>
+    <button type="button" id="btn">New Grid Size</button>
     <div id="cell-container">
       <!-- <div class="cell"></div>
       <div class="cell"></div>
@@ -24,8 +24,10 @@
       'use strict';
 
       const cellContainer = document.getElementById('cell-container');
+      let oldNumberOfCellsWide = 0;
 
-      function setupInitial(cellsAlongWidth) {
+      function setupGrid(cellsAlongWidth) {
+        oldNumberOfCellsWide = cellsAlongWidth;
         cellContainer.style.gridTemplateColumns = `repeat(${cellsAlongWidth}, auto)`;
         console.log('asdf');
         for (let i = 0; i < cellsAlongWidth ** 2; i++) {
@@ -48,7 +50,38 @@
         }
       }
 
-      setupInitial(16);
+      console.log(document.getElementsByTagName('button')[0]);
+
+      let theBtn = document.getElementById('btn');
+      theBtn.addEventListener('click', promptUser);
+
+      function promptUser() {
+        let newNumberOfCellsWide = prompt(
+          'How many cells wide should the new grid be? Maximum of 100',
+          16
+        );
+        if (newNumberOfCellsWide) {
+          if (newNumberOfCellsWide > 100) {
+            newNumberOfCellsWide = prompt(
+              'How many cells wide should the new grid be? Maximum of 100!',
+              16
+            );
+            if (newNumberOfCellsWide) {
+              oldNumberOfCellsWide = newNumberOfCellsWide;
+              clearGrid();
+              setupGrid(newNumberOfCellsWide);
+            } else {
+              // break;
+            }
+          } else {
+            oldNumberOfCellsWide = newNumberOfCellsWide;
+            clearGrid();
+            setupGrid(newNumberOfCellsWide);
+          }
+        }
+      }
+
+      setupGrid(16);
     </script>
   </body>
 </html>
