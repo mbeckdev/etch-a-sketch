@@ -12,6 +12,7 @@
   display: grid;
   /* grid-template-columns: repeat(3, auto); -- created in js*/
 }
+
 .cell {
   /* background-color: red; */
   border: 1px solid red;
