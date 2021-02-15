@@ -17,3 +17,46 @@
   /* background-color: red; */
   border: 1px solid red;
 }
+
+body {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  min-width: 200px;
+}
+
+h1 {
+  margin: 10px;
+}
+
+button {
+  margin-bottom: 15px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-image: linear-gradient(to right, darkgreen, lightgreen);
+}
+
+/* width bigger than 300px and (height > width) */
+@media screen and (min-width: 300px) and (orientation: portrait) {
+  body {
+    /* color: red; */
+  }
+  h1 {
+    color: orange;
+  }
+  #cell-container {
+    width: 67vw;
+    height: 67vw;
+  }
+}
+/* width bigger than 300px and (width > height) */
+@media screen and (min-width: 300px) and (orientation: landscape) {
+  h1 {
+    color: green;
+  }
+  #cell-container {
+    width: 67vh;
+    height: 67vh;
+  }
+}
