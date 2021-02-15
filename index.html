@@ -40,6 +40,7 @@
         tempCell.classList.add('cell');
         cellContainer.appendChild(tempCell);
         console.log('a cell was added to cell-container');
+        tempCell.addEventListener('mouseover', doOnHover);
       }
 
       function clearGrid() {
@@ -81,17 +82,12 @@
         }
       }
 
-      function addEventsToAllCells() {
-        // //how many cells are there?
-        // //loop through cells
-        for (let i = 0; i < oldNumberOfCellsWide ** 2; i++) {
-          // createACell();
-          // cellContainer.appendChild(tempCell);
-          // cellContainer.removeChild[0];
-          cellContainer.children[i].addEventListener('mouseover', durrrrrr);
-        }
+      function doOnHover(e) {
+        console.log(e);
+        console.log(e.target); //thecell
+        let thisCell = e.target;
+        thisCell.style.backgroundColor = 'green';
       }
-
       setupGrid(16);
     </script>
   </body>
