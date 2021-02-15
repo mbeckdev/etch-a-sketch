@@ -33,14 +33,22 @@
         for (let i = 0; i < cellsAlongWidth ** 2; i++) {
           createACell();
         }
+        addAllEventListeners(cellsAlongWidth);
       }
 
+      function addAllEventListeners(cellsAlongWidth) {
+        let allCells = document.querySelectorAll('.cell');
+        console.log(allCells); //nodelist
+
+        for (let i = 0; i < cellsAlongWidth ** 2; i++) {
+          allCells[i].addEventListener('mouseover', doOnHover);
+        }
+      }
       function createACell() {
         let tempCell = document.createElement('div');
         tempCell.classList.add('cell');
         cellContainer.appendChild(tempCell);
         console.log('a cell was added to cell-container');
-        tempCell.addEventListener('mouseover', doOnHover);
       }
 
       function clearGrid() {
