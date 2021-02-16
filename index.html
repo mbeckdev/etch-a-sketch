@@ -8,18 +8,11 @@
   </head>
   <body>
     <h1>Etch A Sketch</h1>
+
     <button type="button" id="btn">New Grid Size</button>
-    <div id="cell-container">
-      <!-- <div class="cell"></div>
-      <div class="cell"></div>
-      <div class="cell"></div>
-      <div class="cell"></div>
-      <div class="cell"></div>
-      <div class="cell"></div>
-      <div class="cell"></div>
-      <div class="cell"></div>
-      <div class="cell"></div> -->
-    </div>
+
+    <div id="cell-container"></div>
+
     <script>
       'use strict';
 
@@ -29,7 +22,7 @@
       function setupGrid(cellsAlongWidth) {
         oldNumberOfCellsWide = cellsAlongWidth;
         cellContainer.style.gridTemplateColumns = `repeat(${cellsAlongWidth}, auto)`;
-        console.log('asdf');
+
         for (let i = 0; i < cellsAlongWidth ** 2; i++) {
           createACell();
         }
@@ -38,7 +31,7 @@
 
       function addAllEventListeners(cellsAlongWidth) {
         let allCells = document.querySelectorAll('.cell');
-        // console.log(allCells); //nodelist
+
         for (let i = 0; i < cellsAlongWidth ** 2; i++) {
           allCells[i].addEventListener('mouseover', doOnHover);
         }
@@ -47,7 +40,6 @@
         let tempCell = document.createElement('div');
         tempCell.classList.add('cell');
         cellContainer.appendChild(tempCell);
-        console.log('a cell was added to cell-container');
       }
 
       function clearGrid() {
@@ -57,8 +49,6 @@
           cellContainer.children[0].remove();
         }
       }
-
-      console.log(document.getElementsByTagName('button')[0]);
 
       let theBtn = document.getElementById('btn');
       theBtn.addEventListener('click', promptUser);
@@ -90,8 +80,6 @@
       }
 
       function doOnHover(e) {
-        console.log(e);
-        console.log(e.target); //thecell
         let thisCell = e.target;
         thisCell.style.backgroundColor = getRandomColor(); //'green'
       }
@@ -102,7 +90,6 @@
         if (num == 256) {
           num = 255;
         }
-        //console.log(num);
         return num;
       }
 
@@ -110,9 +97,6 @@
         let rnd1R = getRandomNum();
         let rnd1G = getRandomNum();
         let rnd1B = getRandomNum();
-        // rnd2R = getRandomNum();
-        // rnd2G = getRandomNum();
-        // rnd2B = getRandomNum();
 
         let colorText = 'rgb(' + rnd1R + ', ' + rnd1G + ', ' + rnd1B + ')';
         return colorText;
