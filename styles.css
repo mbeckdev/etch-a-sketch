@@ -8,9 +8,11 @@
 #cell-container {
   width: 200px;
   height: 200px;
-  background-color: orange;
+  background-color: rgba(255, 255, 255, 0.8);
   display: grid;
   /* grid-template-columns: repeat(3, auto); -- created in js*/
+  /* border: 1px solid black; */
+  box-shadow: 0 0 20px black;
 }
 
 .cell {
@@ -24,17 +26,79 @@ body {
   /* justify-content: center; */
   align-items: center;
   min-width: 200px;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.8);
+  font-family: 'Arial Black', sans-serif;
 }
 
 h1 {
   margin: 10px;
 }
 
-button {
+/* button {
   margin-bottom: 15px;
   padding: 10px 20px;
   border-radius: 5px;
   background-image: linear-gradient(to right, darkgreen, lightgreen);
+} */
+
+#btn {
+  border: none;
+  margin-bottom: 15px;
+
+  font-family: 'Arial Black', sans-serif;
+  /* font-family: 'Arial Black', Gadget, sans-serif; */
+  font-size: 28px;
+  padding: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 10px;
+
+  background-size: 200% auto;
+  color: #fff;
+  text-shadow: 0 0 10px black;
+  font-size: 1.4rem;
+  width: 250px;
+
+  box-shadow: 0 0 20px #eee;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+
+  transition: 0.5s;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 25px;
+
+  background-image: linear-gradient(
+    to right,
+    #dd5e89 0%,
+    #f7bb97 51%,
+    #dd5e89 100%
+  );
+  outline: none;
+}
+
+#btn:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  /* margin: 8px 10px 12px; */
+  /* margin-bottom: 15px; */
+  background-position: right center;
+}
+
+#btn:active {
+  transition: all 0.1s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 0 20px #eee;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  background-image: linear-gradient(
+    to right,
+    #dd5e89 0%,
+    #f7bb97 51%,
+    #dd5e89 100%
+  );
+  background-position: left center;
+  position: relative;
+  /* top: 1px; */
 }
 
 /* width bigger than 300px and (height > width) */

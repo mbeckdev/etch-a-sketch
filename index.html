@@ -38,8 +38,7 @@
 
       function addAllEventListeners(cellsAlongWidth) {
         let allCells = document.querySelectorAll('.cell');
-        console.log(allCells); //nodelist
-
+        // console.log(allCells); //nodelist
         for (let i = 0; i < cellsAlongWidth ** 2; i++) {
           allCells[i].addEventListener('mouseover', doOnHover);
         }
@@ -94,8 +93,31 @@
         console.log(e);
         console.log(e.target); //thecell
         let thisCell = e.target;
-        thisCell.style.backgroundColor = 'green';
+        thisCell.style.backgroundColor = getRandomColor(); //'green'
       }
+
+      function getRandomNum() {
+        let num = 0;
+        num = Math.floor(Math.random() * 256);
+        if (num == 256) {
+          num = 255;
+        }
+        //console.log(num);
+        return num;
+      }
+
+      function getRandomColor() {
+        let rnd1R = getRandomNum();
+        let rnd1G = getRandomNum();
+        let rnd1B = getRandomNum();
+        // rnd2R = getRandomNum();
+        // rnd2G = getRandomNum();
+        // rnd2B = getRandomNum();
+
+        let colorText = 'rgb(' + rnd1R + ', ' + rnd1G + ', ' + rnd1B + ')';
+        return colorText;
+      }
+
       setupGrid(16);
     </script>
   </body>
